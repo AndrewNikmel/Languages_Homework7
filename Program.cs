@@ -6,11 +6,12 @@
 // 8 7,8 -7,1 9
 
 
-// // надо еще подумать по десятичным дробям  
-// double [,] Create2dArray(int rows, int cols, double min, double max){    
-//     double [,] array = new double [rows, cols];                       
+// // надо еще подумать по отрицательным числам  
+// double [,] Create2dArray(int rows, int cols){    
+//     double [,] array = new double [rows, cols];
+//     Random random = new Random();
 //     for(int i = 0; i < rows; i++){                              
-//         for(int j = 0; j < cols; j++){                          
+//         for(int j = 0; j < cols; j++){                         
 //             array[i,j] = new Random().NextDouble()*10;         
 //         }
 //     }
@@ -20,7 +21,8 @@
 // void Show2dArray(double [,] array){                                
 //     for(int i = 0; i < array.GetLength(0); i++){
 //         for(int j = 0; j < array.GetLength(1); j++){
-//             Console.Write(array[i,j]+" ");
+//             double res = Math.Round(array[i,j], 1);
+//             Console.Write(res+" ");
 //         }
 //         Console.WriteLine();
 //     }
@@ -30,16 +32,12 @@
 // int r = Convert.ToInt32(Console.ReadLine());
 // Console.WriteLine("Enter the amount of columns: ");
 // int c = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Enter the minimal element: ");
-// double min = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Enter the maximal element: ");
-// int max = Convert.ToInt32(Console.ReadLine());
-// double [,] arraye = Create2dArray(r,c,min,max);
+// double [,] arraye = Create2dArray(r,c);
 // Console.WriteLine();
 // Show2dArray(arraye);
 
 
-// Задача 50. Напишите программу, которая на вход 
+// Задача 50.Done Напишите программу, которая на вход 
 // принимает позиции элемента в двумерном массиве, 
 // и возвращает значение этого элемента или же указание, 
 // что такого элемента нет.
@@ -49,69 +47,10 @@
 // 8 4 2 4
 // 17 -> такого числа в массиве нет
 
-
-
-
-int [,] Create2dArray(int rows, int cols, int min, int max){    // задаем параметры двумерного массива
-    int [,] array = new int [rows, cols];                       // создаем новый массив с параметрами: столбцы и строки
-    for(int i = 0; i < rows; i++){                              // цикл про столбцы
-        for(int j = 0; j < cols; j++){                          // цикл про строки
-            array[i,j] = new Random().Next(min, max+1);         // создаем элементы массива
-        }
-    }
-    return array;
-}
-
-void Show2dArray(int [,] array){                                
-    for(int i = 0; i < array.GetLength(0); i++){
-        for(int j = 0; j < array.GetLength(1); j++){
-            Console.Write(array[i,j]+" ");
-        }
-        Console.WriteLine();
-    }
-}
-
-void FindTheNum(int [,] array){
-    Console.WriteLine("Input the row: ");
-    int i = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Input the column: ");
-    int j = Convert.ToInt32(Console.ReadLine());
-    if(i < array.GetLength(0) && j < array.GetLength(1))
-        Console.WriteLine($"Your element is {array[i,j]}");
-    else
-        Console.WriteLine("Your element is not present in the Array");
-}
-
-
-
-Console.Write("Enter the numb of rows: ");
-int r = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter the numb of columns: ");
-int c = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter the minimal number of the array: ");
-int min = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter the maximal number of the array: ");
-int max = Convert.ToInt32(Console.ReadLine());
-int [,] arr = Create2dArray(r,c,min,max);
-Show2dArray(arr);
-FindTheNum(arr);
-
-
-// Задача 52. Задайте двумерный массив из целых чисел. 
-// Найдите среднее арифметическое элементов в каждом столбце.
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
-
-
-// надо подумать, что не получается
-
 // int [,] Create2dArray(int rows, int cols, int min, int max){    
 //     int [,] array = new int [rows, cols];                       
 //     for(int i = 0; i < rows; i++){                              
-//         for(int j = 0; j < cols; j++){                         
+//         for(int j = 0; j < cols; j++){                          
 //             array[i,j] = new Random().Next(min, max+1);         
 //         }
 //     }
@@ -127,28 +66,18 @@ FindTheNum(arr);
 //     }
 // }
 
-// void SumTheColumns(int [,] array){
-//     int sum = 0;
-//     // double arithmeticalSum = sum/array.GetLength(1);
-//     for(int i = 0; i < array.GetLength(0); i++){
-//         for(int j = 0; j < array.GetLength(1); j++){
-//             sum = array[i,j] + array[i,j];
-//         }
-//         double arithmeticalSum = sum/array.GetLength(1);
-//         Console.Write(arithmeticalSum + " ");
-//     }
+// void FindTheNum(int [,] array){
+//     Console.WriteLine("Input the row: ");
+//     int i = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Input the column: ");
+//     int j = Convert.ToInt32(Console.ReadLine());
+//     if(i < array.GetLength(0) && j < array.GetLength(1))
+//         Console.WriteLine($"Your element is {array[i,j]}");
+//     else
+//         Console.WriteLine("Your element is not present in the Array");
 // }
 
-// void SumTheColumns(int [,] array){
-//     for(int i = 0; i < array.GetLength(0); i++){
-//         for(int j = 0; j < array.GetLength(1); i++){
-//         int sum = array[i,j]+array[i,j++];
-//         double result = sum / array.GetLength(1);
-//         }
-        
-//     }
-// }
-           
+
 
 // Console.Write("Enter the numb of rows: ");
 // int r = Convert.ToInt32(Console.ReadLine());
@@ -160,4 +89,65 @@ FindTheNum(arr);
 // int max = Convert.ToInt32(Console.ReadLine());
 // int [,] arr = Create2dArray(r,c,min,max);
 // Show2dArray(arr);
+// FindTheNum(arr);
+
+
+// Задача 52. Задайте двумерный массив из целых чисел. 
+// Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+
+// надо подумать, что не получается
+
+int [,] Create2dArray(int rows, int cols, int min, int max){    
+    int [,] array = new int [rows, cols];
+    Random random = new Random();
+    for(int i = 0; i < rows; i++){                              
+        for(int j = 0; j < cols; j++){                         
+            array[i,j] = random.Next(min, max);         
+        }
+    }
+    return array;
+}
+
+void Show2dArray(int [,] array){                                
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            Console.Write(array[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+
+// void SumTheColumns(int [,] array){
+//     double sum = 0;
+//     for(int i = 0; i < array.GetLength(0); i++){
+//         for(int j = 0; j < array.GetLength(1); j++){
+//             sum = sum + array[i,j];
+//         }
+//     double find = sum/array.GetLength(0);
+//     double f = Math.Round(find, 1);
+//     Console.Write(f + " ");
+//     }
+// }
+
+int [] arraye
+           
+
+Console.Write("Enter the numb of rows: ");
+int r = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter the numb of columns: ");
+int c = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the minimal number of the array: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the maximal number of the array: ");
+int max = Convert.ToInt32(Console.ReadLine());
+int [,] arr = Create2dArray(r,c,min,max);
+Show2dArray(arr);
+Console.WriteLine();
 // SumTheColumns(arr);
