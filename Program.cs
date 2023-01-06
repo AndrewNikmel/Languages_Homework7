@@ -1,40 +1,42 @@
-// Задача 47. Задайте двумерный массив размером m×n, 
+// Задача 47. DONE Задайте двумерный массив размером m×n, 
 // заполненный случайными вещественными числами.
 // m = 3, n = 4.
 // 0,5 7 -2 -0,2
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
+///////
 
+double [,] Create2dArray(int rows, int cols, int min, int max){    
+    double [,] array = new double [rows, cols];
+    for(int i = 0; i < rows; i++){                              
+        for(int j = 0; j < cols; j++){                         
+            array[i,j]=Convert.ToDouble(new Random().Next(min,max)/10.0);        
+        }
+    }
+    return array;
+}
 
-// // // надо еще подумать по отрицательным числам  
-// double [,] Create2dArray(int rows, int cols){    
-//     double [,] array = new double [rows, cols];
-//     Random random = new Random();
-//     for(int i = 0; i < rows; i++){                              
-//         for(int j = 0; j < cols; j++){                         
-//             array[i,j] = new Random().NextDouble()*10;         
-//         }
-//     }
-//     return array;
-// }
+void Show2dArray(double [,] array){                                
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            double res = Math.Round(array[i,j], 1);
+            Console.Write(res+" ");
+        }
+        Console.WriteLine();
+    }
+}
 
-// void Show2dArray(double [,] array){                                
-//     for(int i = 0; i < array.GetLength(0); i++){
-//         for(int j = 0; j < array.GetLength(1); j++){
-//             double res = Math.Round(array[i,j], 1);
-//             Console.Write(res+" ");
-//         }
-//         Console.WriteLine();
-//     }
-// }
-
-// Console.WriteLine("Enter the amount of rows: ");
-// int r = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Enter the amount of columns: ");
-// int c = Convert.ToInt32(Console.ReadLine());
-// double [,] arraye = Create2dArray(r,c);
-// Console.WriteLine();
-// Show2dArray(arraye);
+Console.WriteLine("Enter the amount of rows: ");
+int r = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the amount of columns: ");
+int c = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the minimal value: ");
+int min = Convert.ToInt32(Console.ReadLine())*10;
+Console.WriteLine("Enter the maximal value: ");
+int max = Convert.ToInt32(Console.ReadLine())*10;
+double [,] arraye = Create2dArray(r,c,min,max);
+Console.WriteLine();
+Show2dArray(arraye);
 
 
 // Задача 50.Done Напишите программу, которая на вход 
