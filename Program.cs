@@ -4,39 +4,39 @@
 // 0,5 7 -2 -0,2
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
-///////
 
-double [,] Create2dArray(int rows, int cols, int min, int max){    
-    double [,] array = new double [rows, cols];
-    for(int i = 0; i < rows; i++){                              
-        for(int j = 0; j < cols; j++){                         
-            array[i,j]=Convert.ToDouble(new Random().Next(min,max)/10.0);        
-        }
-    }
-    return array;
-}
 
-void Show2dArray(double [,] array){                                
-    for(int i = 0; i < array.GetLength(0); i++){
-        for(int j = 0; j < array.GetLength(1); j++){
-            double res = Math.Round(array[i,j], 1);
-            Console.Write(res+" ");
-        }
-        Console.WriteLine();
-    }
-}
+// double [,] Create2dArray(int rows, int cols, int min, int max){    
+//     double [,] array = new double [rows, cols];
+//     for(int i = 0; i < rows; i++){                              
+//         for(int j = 0; j < cols; j++){                         
+//             array[i,j]=Convert.ToDouble(new Random().Next(min,max)/10.0);        
+//         }
+//     }
+//     return array;
+// }
 
-Console.WriteLine("Enter the amount of rows: ");
-int r = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Enter the amount of columns: ");
-int c = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Enter the minimal value: ");
-int min = Convert.ToInt32(Console.ReadLine())*10;
-Console.WriteLine("Enter the maximal value: ");
-int max = Convert.ToInt32(Console.ReadLine())*10;
-double [,] arraye = Create2dArray(r,c,min,max);
-Console.WriteLine();
-Show2dArray(arraye);
+// void Show2dArray(double [,] array){                                
+//     for(int i = 0; i < array.GetLength(0); i++){
+//         for(int j = 0; j < array.GetLength(1); j++){
+//             double res = Math.Round(array[i,j], 1);
+//             Console.Write(res+" ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Console.WriteLine("Enter the amount of rows: ");
+// int r = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Enter the amount of columns: ");
+// int c = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Enter the minimal value: ");
+// int min = Convert.ToInt32(Console.ReadLine())*10;
+// Console.WriteLine("Enter the maximal value: ");
+// int max = Convert.ToInt32(Console.ReadLine())*10;
+// double [,] arraye = Create2dArray(r,c,min,max);
+// Console.WriteLine();
+// Show2dArray(arraye);
 
 
 // Задача 50.Done Напишите программу, которая на вход 
@@ -106,47 +106,48 @@ Show2dArray(arraye);
 // надо подумать, что не получается
 
 
-// int [,] Create2dArray(int rows, int cols, int min, int max){
-//     int [,] array = new int [rows, cols];
-//     for(int i = 0; i < rows; i++){
-//         for(int j = 0; j < cols; j++){
-//             array [i,j] = new Random().Next(min, max+1);
-//         }
-//     }
-//     return array;
-// }
+int [,] Create2dArray(int rows, int cols, int min, int max){
+    int [,] array = new int [rows, cols];
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < cols; j++){
+            array [i,j] = new Random().Next(min, max+1);
+        }
+    }
+    return array;
+}
 
-// void Show2dArray(int [,] array){
-//     for(int i = 0; i < array.GetLength(0); i++){
-//         for(int j = 0; j < array.GetLength(1); j++){
-//             Console.Write($"{array[i,j]} ");
-//         }
-//         Console.WriteLine();
-//     }
-// }
+void Show2dArray(int [,] array){
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            Console.Write($"{array[i,j]} ");
+        }
+        Console.WriteLine();
+    }
+}
 
-// void SumColumns(int [,] array){
-//     int i = 0;
-//     int length = array.GetLength(0);
-//     for(int j = 0; j < array.GetLength(1); j++){
-//         if(i< array.GetLength(0)){
-//             int sum =+ array [i,j]+array[i+1,j];
-//             double arithmeticSum = sum / length;
-//             i++;
-//             Console.Write(arithmeticSum + " ");
-//     }    
-// }
-// }
+void SumColumn(int [,] array){
+    int sum = 0;
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            sum += array[i,j];
+            Console.Write(sum + " ");      
+        }
+        
+    }
+}
 
-// Console.WriteLine("Enter the amount of rows: ");
-// int rows = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Enter the amount of columns: ");
-// int cols = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Enter the minimal value: ");
-// int min = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Enter the maximal value: ");
-// int max = Convert.ToInt32(Console.ReadLine());
-// int [,] array = Create2dArray(rows,cols,min,max);
-// Show2dArray(array);
-// Console.WriteLine();
-// SumColumns(array);
+
+
+Console.WriteLine("Enter the amount of rows: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the amount of columns: ");
+int cols = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the minimal value: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the maximal value: ");
+int max = Convert.ToInt32(Console.ReadLine());
+int [,] array = Create2dArray(rows,cols,min,max);
+Show2dArray(array);
+Console.WriteLine();
+SumColumn(array);
+// sdfsdfs
